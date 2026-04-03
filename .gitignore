@@ -235,3 +235,7 @@ plots/
 .cache/
 cache/
 tmp/
+
+*.txt
+mlogit_post_ha_combined/
+mlogit_post_ha_combined_2classes/
