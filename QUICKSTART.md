@@ -60,9 +60,23 @@ python sentiment_detection/models_evaluation_sentiment.py     # evaluate candida
 ```bash
 python discourse/KMeans_cluster_each_comments_probs.py    # K-Means clustering
 python discourse/discourse_over_time.py                   # timeline visualisation
-python discourse/HA_Features_Multinomial_Logistic_Model.py
-python discourse/Post_Features_Discourse_Types_Model.py
 ```
+
+### MLT — multinomial logistic regression analysis
+
+Statistically validates discourse-cluster membership (from the K-Means step above)
+against post-level and housing-association features, with `Content_Sharing` as the
+reference class.
+
+```bash
+jupyter nbconvert --to notebook --execute --inplace \
+  MLT/combined_content_sharing_ref/combined_contentsharing.ipynb
+```
+
+Before running, edit the `DATA_PATH` and `OUT_DIR` constants near the top of the
+notebook to point to your clustered data file and desired output folder. Outputs
+(`full_results_with_constants.csv`, `significant_results.csv`, `summary.txt`, and
+forest/dot-matrix plots) are written to `MLT/combined_content_sharing_ref/`.
 
 ### Combine sentiment and intent predictions
 
