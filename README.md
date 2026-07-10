@@ -28,31 +28,25 @@ This research project analyzes social media data through multiple dimensions:
 ```
 
 ### Key Components
-
 #### Intent Detection
-- **Fine-tuning Scripts**: `fine_tune_bertje.py`, `fine_tune_deberta.py`, `fine_tune_robert.py`
+- **Fine-tuning**: `intent_detection/train.py --model {bert_dutch,deberta,roberta}`
 - **Models**: BERT (Dutch), DeBERTa, RoBERTa fine-tuned for intent classification
 - **Synthetic Data**: Generated training data for improved model performance
-- **Prediction & Visualization**: `intent_pred_and_plot.ipynb`
-
+- **Prediction & Visualization**: `intent_pred_and_plot.py`
 #### Sentiment Detection  
-- **Model Evaluation**: `models_evaluation_sentiment.ipynb`
-- **Prediction & Plotting**: `sentiment_prediction_and_plot.ipynb`
-
+- **Model Evaluation**: `models_evaluation_sentiment.py`
+- **Prediction & Plotting**: `sentiment_prediction_and_plot.py`
 #### Discourse Analysis
-- **Temporal Analysis**: `discourse_over_time.ipynb` - tracks discourse patterns across time periods (Q1 2018 - Q1 2023)
+- **Temporal Analysis**: `discourse_over_time.py` - tracks discourse patterns across time periods (Q1 2018 - Q1 2023)
 - **Feature Analysis**: Multiple notebooks analyzing post features and discourse relationships
 - **Clustering**: K-means clustering analysis of comment probabilities
 - **Multinomial Logistic Modeling**: Advanced statistical modeling of discourse types
-
 ### Discourse Pattern Discovery
 A core contribution of WP1 is the unsupervised discovery of **six emergent discourse patterns** from the joint distribution of sentiment, intent, and relatedness scores across tenant comments. Key findings:
-
 - **Clustering**: K-means clustering over the combined sentiment, intent, and relatedness feature space reveals six distinct discourse patterns.
 - **Characterisation**: Each discourse pattern is profiled by its distinguishing linguistic and structural properties, including sentiment polarity, dominant intent type, and relatedness to the original housing association post
 - **Predictive Validation**: Multinomial logistic regression is used to verify that discourse pattern membership is systematically associated with post-level features (e.g., post length, presence of URLs, question framing) and housing association characteristics (e.g., association size, geographic region, portfolio type)
 - This validates that the emergent patterns are not arbitrary clusters but reflect meaningful variation in how tenants engage with different types of institutional communication
-
 #### MLT: Multinomial Logistic Regression Analysis
 - **Notebook**: `MLT/combined_content_sharing_ref/combined_contentsharing.ipynb`
 - **Purpose**: Fits a combined multinomial logit model (`statsmodels.api.MNLogit`) to test whether discourse-cluster membership is predicted by post-level and housing-association (HA) features, with **Content_Sharing** set as the reference discourse category
@@ -65,29 +59,23 @@ A core contribution of WP1 is the unsupervised discovery of **six emergent disco
   - `summary.txt` — model fit statistics (pseudo R², AIC, BIC, log-likelihood, convergence)
   - `forest_plot_significant.png`, `forest_plot.png`, `dot_matrix.png`, `combined_plots.png` — coefficient forest plots and dot-matrix visualizations of significant predictors, colour-coded by discourse type
 - **Interpretation**: Significant coefficients indicate that features such as HA size, affordability, and tenant satisfaction are systematically associated with specific discourse types (e.g., Information Seeking, On-topic Criticism), providing statistical validation of the discourse patterns discovered via clustering
-
 #### Data Processing
-- **Author Extraction**: `extract_author_name.ipynb`
-- **Data Cleaning**: `remove_names.ipynb` 
+- **Author Extraction**: `extract_author_name.py`
+- **Data Cleaning**: `remove_names.py`
 - **Preprocessing**: Text normalization, HTML cleaning, URL/mention standardization
-
 #### Relatedness Analysis
-- **Similarity Checks**: `Sim_checks_other_posts.ipynb` for cross-post similarity analysis
-
+- **Similarity Checks**: `Sim_checks_other_posts.py` for cross-post similarity analysis
 ## Getting Started
-
 ### Prerequisites
-
 - Python 3.8+
 - Jupyter Notebook/Lab
 - CUDA-capable GPU (recommended for model training)
-
 ### Installation
-
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
    cd EngD_WP1_Analysis_Social_Media
+
    ```
 
 2. **Install dependencies**
