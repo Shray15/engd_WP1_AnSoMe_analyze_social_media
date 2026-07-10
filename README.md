@@ -96,12 +96,16 @@ A core contribution of WP1 is the unsupervised discovery of **six emergent disco
    - Run data preprocessing utilities in `data_utils/`
 
 2. **Model Training**
-   ```bash
-   # Train intent detection models
-   python intent_detection/fine_tune_bertje.py
-   python intent_detection/fine_tune_deberta.py  
-   python intent_detection/fine_tune_robert.py
-   ```
+  ```bash
+  # Fine-tune BERTje (Dutch BERT)
+  python intent_detection/train.py --model bert_dutch --data path/to/data.xlsx
+  
+  # Fine-tune DeBERTa
+  python intent_detection/train.py --model deberta --data path/to/data.xlsx
+  
+  # Fine-tune RoBERTa
+  python intent_detection/train.py --model roberta --data path/to/data.xlsx
+  ```
 
 3. **Analysis Notebooks**
    - Open Jupyter notebooks in respective directories
