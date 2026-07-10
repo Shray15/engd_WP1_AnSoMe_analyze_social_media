@@ -16,20 +16,8 @@ OUTPUT_CSV           = r"PATH_TO_OUTPUT_CSV"             # e.g. data/final_data_
 d1 = pd.read_csv(FINAL_DATA_CSV)
 d2 = pd.read_csv(DATA_23_CSV)
 
-
-
-d1
-
-
-
-
 print(d1.columns)
 print(d2.columns)
-
-
-
-d2
-
 
 
 # Ensure keys are the same type
@@ -49,12 +37,6 @@ d1['time'] = d1['ha_id'].map(time_map)
 d1['weekday'] = d1['ha_id'].map(weekday_map)
 d1['month'] = d1['ha_id'].map(month_map)
 d1['year'] = d1['ha_id'].map(year_map)
-
-
-
-d1
-
-
 
 d1.to_csv(OUTPUT_CSV, index=False)
 
